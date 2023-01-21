@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+
+A Job postings website built with Docker Compose 
+services used: 
+- mysql
+-phpmyadmin
+-laravel sail
+
+To start, make sure you have docker installed, then:
+- git clone repo
+- ./vendor/bin/sail up
+- go to localhost
+- for phpmyadmin: localhost:8001
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
