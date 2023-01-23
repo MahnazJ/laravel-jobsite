@@ -8,7 +8,7 @@
 </p>
 
 
-A Job postings website built with Docker Compose 
+A Job postings website built with Docker Compose,
 services used: 
 - mysql
 -phpmyadmin
