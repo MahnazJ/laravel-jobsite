@@ -14,15 +14,14 @@
     <div class="mb-6">
         <label
             for="company"
-            class="inline-block text-lg mb-2"
-            >Company Name</label
-        >
+            class="inline-block text-lg mb-2">
+            Company Name
+        </label>
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
             name="company"
-            value="{{old('company')}}"
-        />
+            value="{{old('company')}}"/>
 
         @error('company')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -30,9 +29,9 @@
     </div>
 
     <div class="mb-6">
-        <label for="title" class="inline-block text-lg mb-2"
-            >Job Title</label
-        >
+        <label for="title" class="inline-block text-lg mb-2">
+            Job Title
+        </label>
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
@@ -48,9 +47,8 @@
     <div class="mb-6">
         <label
             for="location"
-            class="inline-block text-lg mb-2"
-            >Job Location</label
-        >
+            class="inline-block text-lg mb-2">
+            Job Location</label>
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
@@ -65,8 +63,7 @@
 
     <div class="mb-6">
         <label for="email" class="inline-block text-lg mb-2"
-            >Contact Email</label
-        >
+            >Contact Email</label>
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
@@ -81,8 +78,7 @@
     <div class="mb-6">
         <label
             for="website"
-            class="inline-block text-lg mb-2"
-        >
+            class="inline-block text-lg mb-2">
             Website/Application URL
         </label>
         <input
@@ -129,8 +125,7 @@
     <div class="mb-6">
         <label
             for="description"
-            class="inline-block text-lg mb-2"
-        >
+            class="inline-block text-lg mb-2">
             Job Description
         </label>
         <textarea
@@ -146,8 +141,7 @@
 
     <div class="mb-6">
         <button
-            class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
-        >
+            class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
             Create job
         </button>
 
