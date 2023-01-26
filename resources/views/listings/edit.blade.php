@@ -124,7 +124,7 @@
                 <img
                 class="w-48 mr-6 mb-6"
                 src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}"
-                alt=""/>
+                alt="company logo"/>
             @error('logo')
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
@@ -133,8 +133,7 @@
         <div class="mb-6">
             <label
                 for="description"
-                class="inline-block text-lg mb-2"
-            >
+                class="inline-block text-lg mb-2">
                 Job Description
             </label>
             <textarea
@@ -149,9 +148,7 @@
         </div>
     
         <div class="mb-6">
-            <button
-                class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
-            >
+            <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
                 Update Gig
             </button>
     
