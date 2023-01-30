@@ -2,28 +2,17 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
     <header class="text-center">
         <h2 class="text-2xl font-bold uppercase mb-1">
-            Register
+            Login
         </h2>
-        <p class="mb-4">Create an account to post gigs</p>
+        <p class="mb-4">Log into your account</p>
     </header>
 
-    <form method="POST" action="/users">
+    <form method="POST" action="/users/authenticate">
         @csrf
         <div class="mb-6">
-            <label for="name" class="inline-block text-lg mb-2">
-                Name
+            <label for="email" class="inline-block text-lg mb-2">
+                Email
             </label>
-            <input
-                type="text"
-                class="border border-gray-200 rounded p-2 w-full"
-                name="name" value="{{old('name')}}" autocomplete="name"/>
-            @error('name')
-            <p class="text red-500 text-xs mt-1">{{$message}}</p>
-            @enderror
-        </div>
-        <div class="mb-6">
-            <label for="email" class="inline-block text-lg mb-2"
-                >Email</label>
             <input
                 type="email"
                 class="border border-gray-200 rounded p-2 w-full"
@@ -32,6 +21,7 @@
             <p class="text red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
+
         <div class="mb-6">
             <label
                 for="password"
@@ -47,31 +37,17 @@
             @enderror
         </div>
         <div class="mb-6">
-            <label
-                for="password2"
-                class="inline-block text-lg mb-2">
-                Confirm Password
-            </label>
-            <input
-                type="password"
-                class="border border-gray-200 rounded p-2 w-full"
-                name="password_confirmation" value="{{old('password_confirmation')}}"/>
-            @error('password_confirmation')
-            <p class="text red-500 text-xs mt-1">{{$message}}</p>
-            @enderror
-        </div>
-        
-        <div class="mb-6">
             <button
                 type="submit"
                 class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                Sign Up
+                Sign In
             </button>
         </div>
+
         <div class="mt-8">
             <p>
-                Already have an account?
-                <a href="/login" class="text-laravel">Login</a>
+                No account yet? 
+                <a href="/register" class="text-laravel">Register</a>
             </p>
         </div>
     </form>

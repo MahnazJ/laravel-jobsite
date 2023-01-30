@@ -26,7 +26,6 @@
             </h3>
             <div class="text-lg space-y-6">
             {{$listing->description}}
-
                 <a
                     href="mailto:{{$listing->email}}"
                     class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80">
@@ -44,20 +43,6 @@
             </div>
         </div>
     </div>
-</x-card>
-<x-card class="mt-4 p-2 flex space-x-6">
-    <a href="/listings/{{$listing->id}}/edit">
-        <i class="fa-solid fa-pencil"> Edit </i>
-    </a>
-
-    <form method="POST"/listings/{{$listing->id}}">
-        @csrf
-        @method('DELETE')
-        <button class="text-red-500">
-            <i class="fa-solid-fa-trash">Delete</i>
-        </button>
-
-    </form>
 </x-card>
 </div>
 </x-layout>

@@ -40,9 +40,17 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+      if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+
+        if (!$logo->isValid() || $logo->getSize() > 2048 * 1024) {
+            return redirect()->back()->with('message', 'Invalid file uploaded.');
         }
+
+        $formFields['logo'] = $logo->store('logos', 'public');
+        }
+
+        $formFields['user_id'] = auth()->id();
 
         Listing::create($formFields);
 
@@ -54,6 +62,10 @@ class ListingController extends Controller
     }
 
     public function update(Request $request, Listing $listing) {
+        //make sure logged in user is owner
+        if($listing->user_id != auth()->id()) {
+            abort(403, 'Unauthorized action');
+        }
         
         $formFields = $request->validate([
             'title' => 'required',
@@ -65,10 +77,15 @@ class ListingController extends Controller
             'description' => 'required'
         ]);
 
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+
+        if (!$logo->isValid() || $logo->getSize() > 2048 * 1024) {
+            return redirect()->back()->with('error', 'Invalid file uploaded.');
         }
 
+        $formFields['logo'] = $logo->store('logos', 'public');
+        }
         $listing->update($formFields);
 
         return back()->with('message', 'Listing updated successfully!');
@@ -76,9 +93,20 @@ class ListingController extends Controller
 
     //delete listing
     public function destroy(Listing $listing ) {
+        //make sure logged in user is owner
+        if($listing->user_id != auth()->id()) {
+        abort(403, 'Unauthorized action');
+        }
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted succesfully');
     }
 
+    //manage listings
+    public function manage() {
+        try {
+            return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+        } catch (\Exception $e) {
+            dd($e);
+        }
+    }
 }
-
